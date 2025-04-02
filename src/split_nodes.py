@@ -15,7 +15,7 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
         for i, s in enumerate(strs):
             if i % 2 == 0:
                 # text nodes are even indexes
-                new_nodes.append(TextNode(s, TextType.TEXT))
+                new_nodes.append(TextNode(s.replace("\n"," "), TextType.TEXT))
             else:
                 new_nodes.append(TextNode(s, text_type))
 

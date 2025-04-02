@@ -41,7 +41,7 @@ class TestParentNode(TestCase):
         )
 
         ret = node.to_html()
-        self.assertEqual(ret,"<p><b>Bold text</b>Normal text<i>italic text</i>Normal text</p>" )
+        self.assertEqual(ret, "<p><b>Bold text</b>Normal text<i>italic text</i>Normal text</p>")
 
     def test_to_html_with_children(self):
         child_node = LeafNode("span", "child")
@@ -72,7 +72,7 @@ class TestLeafNode(TestCase):
         self.assertEqual(node.to_html(), 'Click me!')
 
     def test_leaf_to_html_no_value(self):
-        node =LeafNode("a", None, {"href": "https://www.google.com"})
+        node = LeafNode("a", None, {"href": "https://www.google.com"})
         with self.assertRaises(ValueError):
             node.to_html()
 
