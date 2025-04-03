@@ -28,9 +28,13 @@ def quote_nodes(blocktext):
 
 
 def heading_nodes(blocktext):
+    children = []
     parts = blocktext.split(" ", 1)
     hl = len(parts[0])
-    return LeafNode(f'h{hl}', parts[1])
+    nodes = text_to_nodes(parts[1])
+    for node in nodes:
+        children.append(text_node_to_html_node(node))
+    return ParentNode(f'h{hl}', children)
 
 
 def ulist_nodes(blocktext):
